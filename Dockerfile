@@ -3,6 +3,7 @@ LABEL maintainer "alanndz <alanndz@qmail.id>"
 
 # Indonesian Timezone (GMT+8)
 ENV TZ=Asia/Makassar
+ENV AOSP=/root/aosp
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
 RUN apt-get update -qq && \
@@ -25,4 +26,10 @@ RUN apt-get update -qq && \
 	wget \
 	zip \
 	zstd
-        
+
+# Clone Clang
+RUN git clone --depth=1 https://github.com/sohamxda7/llvm-stable  $AOSP/clang
+
+# Clone GCC
+RUN git clone --depth=1 https://github.com/sohamxda7/llvm-stable -b gcc64 $AOSP/gcc
+RUN git clone --depth=1 https://github.com/sohamxda7/llvm-stable -b gcc32 $AOSP/gcc32
