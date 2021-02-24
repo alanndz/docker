@@ -20,7 +20,6 @@ RUN apt-get update -qq && \
 	git \
 	libc6-dev \
 	libssl-dev \
-        libncurses5 \
 	make \
 	openssl \
 	python \
