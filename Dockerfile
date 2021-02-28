@@ -57,6 +57,7 @@ RUN apt-get update -qq && \
 	python2 \
 	rsync \
 	shtool \
+	sshpass \
 	subversion \
 	tar \
 	texinfo \
@@ -78,3 +79,6 @@ RUN git clone --depth=1 https://github.com/sohamxda7/llvm-stable -b gcc32 $AOSP/
 
 # Clone Anykernel
 RUN git clone -b lavender https://github.com/alanndz/AnyKernel3 /root/AnyKernel
+
+# SSH Folder
+RUN mkdir ~/.ssh/
